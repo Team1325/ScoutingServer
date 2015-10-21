@@ -42,6 +42,8 @@ var apiRouter = express.Router();
 
 // test route to make sure everything is working
 // accessed at GET http://localhost:8080/api
+
+// arun i hack ur code O.o!@#omg
 apiRouter.get('/', function(req, res) {
 	res.json({ message: 'hooray! welcome to our server!' });
 });
@@ -56,7 +58,7 @@ apiRouter.route('/matches')
 		var match = new Match();
 		match.number = req.body.number;
 		match.quadrant = req.body.quadrant;
-		match.stacks = req.body.stacks;
+		match.teleop = req.body.teleop;
 
 		match.save(function(err) {
 			if (err) {
