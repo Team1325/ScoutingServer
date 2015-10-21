@@ -1,13 +1,9 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs');
 
-var MatchSchema = new Schema({
+module.exports = mongoose.model('Match', {
 
-  name: String,
-  username: {type: String, required: true, index: {unique: true}},
-  password: {type: String, required: true, select: false}
+  number: Number,
+  quadrant: Number,
+  stacks: String
 
 });
-
-module.exports = mongoose.model('Match', MatchSchema);

@@ -53,30 +53,26 @@ apiRouter.route('/matches')
 	// create a user (accessed at POST http://localhost:8080/users)
 	.post(function(req, res) {
 
-		var user = new Match();		// create a new instance of the User model
-		user.name = req.body.name;  // set the users name (comes from the request)
+		var match = new Match();
+		match.number = req.body.number;
+		match.quadrant = req.body.quadrant;
+		match.stacks = req.body.stacks;
 
-		user.save(function(err) {
+		match.save(function(err) {
 			if (err) {
-				// duplicate entry
-				if (err.code == 11000)
-					return res.json({ success: false, message: 'A user with that username already exists. '});
-				else
 					return res.send(err);
 			}
 
 			// return a message
-			res.json({ message: 'User created!' });
+			res.json({ message: 'Match saved!' });
 		});
 
 	})
 
 	.get(function(req, res) {
-		Match.find(function(err, users) {
+		Match.find(function(err, matches) {
 			if (err) res.send(err);
-
-			// return the users
-			res.json(users);
+			res.json(matches);
 		});
 	});
 
