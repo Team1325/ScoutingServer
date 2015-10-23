@@ -59,6 +59,7 @@ apiRouter.route('/matches')
 		match.number = req.body.number;
 		match.quadrant = req.body.quadrant;
 		match.teleop = req.body.teleop;
+		match.scouter = req.body.scouter;
 
 		match.save(function(err) {
 			if (err) {
