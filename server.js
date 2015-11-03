@@ -56,14 +56,17 @@ apiRouter.route('/matches')
 	.post(function(req, res) {
 
 		var match = new Match();
+
 		match.number = req.body.number;
 		match.quadrant = req.body.quadrant;
 		match.teleop = req.body.teleop;
 		match.scouter = req.body.scouter;
 		match.team = req.body.team
 		match.auto = req.body.auto;
+		match.notes = req.body.notes;
 
 		match.save(function(err) {
+			
 			if (err) {
 					return res.send(err);
 			}

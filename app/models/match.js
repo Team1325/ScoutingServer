@@ -7,6 +7,7 @@ module.exports = mongoose.model('Match', {
   teleop: String,
   auto: String,
   scouter: String,
-  team: Number
+  team: Number,
+  notes: String
 
 });
