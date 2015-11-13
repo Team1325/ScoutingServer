@@ -64,9 +64,11 @@ apiRouter.route('/matches')
 		match.team = req.body.team
 		match.auto = req.body.auto;
 		match.notes = req.body.notes;
+		match.humanplayer = req.body.humanplayer;
+		match.landfill = req.body.landfill;
 
 		match.save(function(err) {
-			
+
 			if (err) {
 					return res.send(err);
 			}

@@ -8,6 +8,8 @@ module.exports = mongoose.model('Match', {
   auto: String,
   scouter: String,
   team: Number,
-  notes: String
+  notes: String,
+  humanplayer: Boolean,
+  landfill: Boolean
 
 });
