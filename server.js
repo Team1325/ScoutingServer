@@ -7,7 +7,7 @@ var app        = express(); 				// define our app using express
 var bodyParser = require('body-parser'); 	// get body-parser
 var morgan     = require('morgan'); 		// used to see requests
 var mongoose   = require('mongoose');
-var Match       = require('./app/models/match');
+var Match      = require('./app/models/match');
 var port       = process.env.PORT || 8100; // set the port for our app
 
 // APP CONFIGURATION ---------------------
@@ -57,15 +57,26 @@ apiRouter.route('/matches')
 
 		var match = new Match();
 
+		match.team = req.body.team;
 		match.number = req.body.number;
 		match.quadrant = req.body.quadrant;
-		match.teleop = req.body.teleop;
 		match.scouter = req.body.scouter;
-		match.team = req.body.team
+
+		match.botType = req.body.botType;
+
 		match.auto = req.body.auto;
-		match.notes = req.body.notes;
-		match.humanplayer = req.body.humanplayer;
-		match.landfill = req.body.landfill;
+		match.autonotes = req.body.autonotes;
+
+		match.teleop = req.body.teleop;
+		match.teleopnotes = req.body.teleopnotes;
+
+		match.totalscore = req.body.totalscore;
+
+		match.defenseOne = req.body.defenseOne;
+		match.defenseTwo = req.body.defenseTwo;
+		match.defenseThree = req.body.defenseThree;
+		match.defenseFour = req.body.defenseFour;
+		match.defenseFive = req.body.defenseFive;
 
 		match.save(function(err) {
 
@@ -83,6 +94,7 @@ apiRouter.route('/matches')
 		Match.find(function(err, matches) {
 			if (err) res.send(err);
 			res.json(matches);
+			console.log('checkpoint')
 		});
 	});
 
