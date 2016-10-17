@@ -1,1 +1,2 @@
 # ScoutingServer
+##### ***NOT FULLY WORKING AND NOT BEING ACTIVELY DEVELOPED***
